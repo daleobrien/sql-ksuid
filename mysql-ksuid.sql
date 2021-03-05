@@ -13,13 +13,13 @@ BEGIN
     SET n = n * f + CAST(RAND() * f AS UNSIGNED);
     SET n = n * f + CAST(RAND() * f AS UNSIGNED);
     SET n = n * f + CAST(RAND() * f AS UNSIGNED);
-	
+
     -- Base62 encoding
     WHILE i <= 27 DO
-		SET s = CONCAT(SUBSTR(digits, (n MOD 62) + 1, 1), s);
-		SET n = FLOOR(n / 62);
+        SET s = CONCAT(SUBSTR(digits, (n MOD 62) + 1, 1), s);
+        SET n = FLOOR(n / 62);
         SET i = i + 1;
-	END WHILE;
+    END WHILE;
 
     RETURN s;
     
